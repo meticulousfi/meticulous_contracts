@@ -14,7 +14,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract ZKPUserProfile is Ownable {
 
-    // Define a struct to hold user profile data, encrypted
+    // Profile struct to store user profile data
     struct Profile {
         bytes32 username; // Hashed username
         bytes32 firstName; // Hashed first name
