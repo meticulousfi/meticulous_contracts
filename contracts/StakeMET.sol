@@ -1,6 +1,15 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity 0.8.20;
 
+//  _____ ______   _______  _________  ___  ________  ___  ___  ___       ________  ___  ___  ________      
+// |\   _ \  _   \|\  ___ \|\___   ___\\  \|\   ____\|\  \|\  \|\  \     |\   __  \|\  \|\  \|\   ____\     
+// \ \  \\\__\ \  \ \   __/\|___ \  \_\ \  \ \  \___|\ \  \\\  \ \  \    \ \  \|\  \ \  \\\  \ \  \___|_    
+//  \ \  \\|__| \  \ \  \_|/__  \ \  \ \ \  \ \  \    \ \  \\\  \ \  \    \ \  \\\  \ \  \\\  \ \_____  \   
+//   \ \  \    \ \  \ \  \_|\ \  \ \  \ \ \  \ \  \____\ \  \\\  \ \  \____\ \  \\\  \ \  \\\  \|____|\  \  
+//    \ \__\    \ \__\ \_______\  \ \__\ \ \__\ \_______\ \_______\ \_______\ \_______\ \_______\____\_\  \ 
+//     \|__|     \|__|\|_______|   \|__|  \|__|\|_______|\|_______|\|_______|\|_______|\|_______|\_________\
+//
+
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
@@ -10,7 +19,7 @@ interface IMetPlus {
     function transferFrom(address from, address to, uint256 value) external returns (bool);
 }
 
-interface IMet {
+interface IMeticulous {
     function transfer(address to, uint256 value) external returns (bool);
     function transferFrom(address from, address to, uint256 value) external returns (bool);
 }
@@ -20,7 +29,7 @@ contract StakeMET is Ownable, ReentrancyGuard {
     event Stake(uint256 amount, address owner, uint256 period, uint256 id);
     event UnStake(uint256 amount, address owner, uint256 id);
 
-    IMet public METaddress;
+    IMeticulous public METaddress;
     IMetPlus public METPlusAddress;
     address public treasuryAddress = 0x696c2fEc3da1859f1675F638401a46ae4Ae12ae3;
 
@@ -49,7 +58,7 @@ contract StakeMET is Ownable, ReentrancyGuard {
     mapping(uint256 => Locker) public getLocker;
 
     constructor(address metToken, address metPlusToken) Ownable(msg.sender) {
-        METaddress = IMet(metToken);
+        METaddress = IMeticulous(metToken);
         METPlusAddress = IMetPlus(metPlusToken);
     }
 
