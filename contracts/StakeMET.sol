@@ -22,7 +22,7 @@ contract StakeMET is Ownable, ReentrancyGuard {
 
     IMet public METaddress;
     IMetPlus public METPlusAddress;
-    address public treasuryAddress = 0x177f6519A523EEbb542aed20320EFF9401bC47d0;
+    address public treasuryAddress = 0x696c2fEc3da1859f1675F638401a46ae4Ae12ae3;
 
     uint256 public defaultFee = 250;
     uint256 public totalMetStaked = 0;
